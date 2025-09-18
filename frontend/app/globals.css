@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neutral, Apple-like palette via CSS variables (HSL) */
+:root {
+  --background: 0 0% 98%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 3% 46%;
+  --primary: 217 100% 50%;           /* subtle Apple-blue accent */
+  --primary-foreground: 0 0% 100%;
+  --border: 240 5% 90%;
+  --input: 240 5% 90%;
+  --ring: 217 100% 50%;
+  --success: 142 72% 29%;
+  --warning: 38 92% 50%;
+  --destructive: 0 84% 60%;
+  --radius: 14px;
+}
+
+.dark {
+  --background: 240 6% 5%;
+  --foreground: 0 0% 100%;
+  --card: 240 5% 8%;
+  --card-foreground: 0 0% 100%;
+  --muted: 240 5% 12%;
+  --muted-foreground: 240 5% 64%;
+  --primary: 217 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --border: 240 5% 20%;
+  --input: 240 5% 18%;
+  --ring: 217 92% 60%;
+  --success: 142 72% 35%;
+  --warning: 38 92% 55%;
+  --destructive: 0 84% 60%;
+}
+
+/* Base */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "liga" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Components */
+@layer components {
+  .card {
+    @apply bg-card text-card-foreground rounded-2xl shadow-soft border border-border;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium transition;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground hover:opacity-90 active:opacity-80;
+  }
+  .btn-muted {
+    @apply btn bg-muted text-foreground hover:bg-gray-200/80 dark:hover:bg-gray-700/70;
+  }
+  .input {
+    @apply w-full rounded-xl border border-input bg-white/80 dark:bg-black/20 px-3 py-2 outline-none focus:ring-2 focus:ring-ring focus:border-input;
+  }
+  .label {
+    @apply text-sm text-muted-foreground;
+  }
+}

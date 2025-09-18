@@ -1,0 +1,19 @@
+# fly.toml app configuration file generated for lexsy-mongo on 2025-09-14T05:00:33+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'lexsy-mongo'
+primary_region = 'lax'
+
+[build]
+  dockerfile = 'Dockerfile'
+
+[[mounts]]
+  source = 'lexsy_mongo'
+  destination = '/data/db'
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

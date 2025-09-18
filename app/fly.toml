@@ -1,0 +1,41 @@
+# fly.toml app configuration file generated for lexsy-safe-api on 2025-09-16T02:04:53+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'lexsy-safe-api'
+primary_region = 'lax'
+
+[build]
+  dockerfile = 'Dockerfile'
+
+[env]
+  ASK_USE_OPENAI = '1'
+  DATA_DIR = '/data/sessions'
+  OPENAI_MODEL = 'gpt-4o'
+  PORT = '8000'
+  RETENTION_DAYS = '3'
+
+[[mounts]]
+  source = 'sessions_data'
+  destination = '/data/sessions'
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+  [[http_service.checks]]
+    interval = '30s'
+    timeout = '5s'
+    grace_period = '10s'
+    method = 'GET'
+    path = '/health'
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

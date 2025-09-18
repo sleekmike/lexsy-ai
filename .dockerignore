@@ -1,0 +1,11 @@
+# flyctl launch added from app/venv/.gitignore
+# created by virtualenv automatically
+app/venv/**/*
+fly.toml
+node_modules
+.next
+out
+.git
+*.log
+.DS_Store
+
