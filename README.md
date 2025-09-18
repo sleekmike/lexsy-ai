@@ -1,5 +1,3 @@
----
-
 # Lexsy SAFE — AI-Assisted SAFE Filler
 
 Minimal, fast web app that:
