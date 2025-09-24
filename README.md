@@ -296,13 +296,3 @@ curl -L -o filled.docx "https://lexsy-safe-api.fly.dev/download?session_id=$SID"
 * Keep CORS tight in production.
 
 ---
-
-## Submission checklist
-
-* ✅ Public URL to the web app
-* ✅ Public API health endpoint (`/health`)
-* ✅ GitHub repo(s) with README and Dockerfiles
-* ✅ Short Loom (≤2 min) showing upload → ask → fill → download
-* ✅ Optional: attach a filled `.docx` for reviewers
-
----
